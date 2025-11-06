@@ -43,7 +43,7 @@ function AppContent() {
       if (data) {
         setIsPremium(data.is_premium);
       } else {
-        await Bolt Database
+        await supabase
           .from('user_subscriptions')
           .insert({
             user_id: user.id,
@@ -59,7 +59,7 @@ function AppContent() {
     if (!user) return;
 
     try {
-      const { data: existing } = await Bolt Database
+      const { data: existing } = await supabase
         .from('user_subscriptions')
         .select('id')
         .eq('user_id', user.id)
@@ -74,7 +74,7 @@ function AppContent() {
           })
           .eq('user_id', user.id);
       } else {
-        await Bolt Database
+        await supabase
           .from('user_subscriptions')
           .insert({
             user_id: user.id,
