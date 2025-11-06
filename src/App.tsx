@@ -66,7 +66,7 @@ function AppContent() {
         .maybeSingle();
 
       if (existing) {
-        await Bolt Database
+        await supabase
           .from('user_subscriptions')
           .update({
             is_premium: true,
