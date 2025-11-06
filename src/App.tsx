@@ -34,7 +34,7 @@ function AppContent() {
     if (!user) return;
 
     try {
-      const { data } = await Bolt Database
+      const { data } = await supabase
         .from('user_subscriptions')
         .select('is_premium')
         .eq('user_id', user.id)
