@@ -1,12 +1,13 @@
-import { Crown, LogOut } from 'lucide-react';
+import { Crown, LogOut, HelpCircle } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 interface HeaderProps {
   isPremium: boolean;
   onUpgradePremium: () => void;
+  onShowHelp: () => void;
 }
 
-export default function Header({ isPremium, onUpgradePremium }: HeaderProps) {
+export default function Header({ isPremium, onUpgradePremium, onShowHelp }: HeaderProps) {
   const { user, signOut } = useAuth();
 
   return (
@@ -24,6 +25,13 @@ export default function Header({ isPremium, onUpgradePremium }: HeaderProps) {
           )}
         </div>
         <div className="flex items-center gap-2">
+          <button
+            onClick={onShowHelp}
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
+          >
+            <HelpCircle className="w-4 h-4" />
+            Help
+          </button>
           {!isPremium && (
             <button
               onClick={onUpgradePremium}
