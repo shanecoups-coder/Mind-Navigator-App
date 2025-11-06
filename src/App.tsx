@@ -5,7 +5,7 @@ import Header from './components/Header';
 import DecisionCanvas from './components/DecisionCanvas';
 import PremiumModal from './components/PremiumModal';
 import HelpModal from './components/HelpModal';
-import { Bolt Database } from './lib/supabase';
+import { BoltDatabase } from './lib/supabase';
 
 function AppContent() {
   const { user, loading } = useAuth();
